@@ -1,8 +1,9 @@
 # jokes
 
-This is web application that displays a random joke from The Internet Chuck
-Norris Database (http://www.icndb.com/). This web application was written
-in Java and uses the Spring Framework.
+This web application will display a random joke from The Internet Chuck Norris
+Database (http://www.icndb.com/). Each time the web page is refreshed, you will
+get a different Chuck Norris joke. The source code is in Java and uses the  
+the Spring Framework.
 
 This project was created using IntelliJ IDEA (IDE). Load project by opening
 pom.xml file. To build the project without the IDE, go to the directory where
@@ -20,13 +21,13 @@ src/main/webapp/WEB-INF/spring/root-context.xml and
 src/main/resources/testApplicationContext.xml. Then execute the following SQL
 in your database:
 
+<pre>
 create table if not exists ACTIVITYLOG (
          id INTEGER PRIMARY KEY AUTOINCREMENT,
          activity_date TIMESTAMP NOT NULL,
          ip_address text NOT NULL
         );
-
-
+</pre>
 
 
 
