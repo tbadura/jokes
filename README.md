@@ -1,8 +1,8 @@
 # jokes
 
 This is web application that displays a random joke from The Internet Chuck
-Norris Database (http://www.icndb.com/). This is a Java web application 
-that uses the Spring Framework.
+Norris Database (http://www.icndb.com/). This web application was written
+in Java and uses the Spring Framework.
 
 This project was created using IntelliJ IDEA (IDE). Load project by opening
 pom.xml file. To build the project without the IDE, go to the directory where
