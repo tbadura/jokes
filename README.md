@@ -2,7 +2,7 @@
 
 This web application will display a random joke from The Internet Chuck Norris
 Database (http://www.icndb.com/). Each time the web page is refreshed, you will
-get a different Chuck Norris joke. The source code is writtenin Java and uses
+get a different Chuck Norris joke. The source code is written in Java and uses
 the Spring Framework.
 
 This project was created using IntelliJ IDEA (IDE). Load project by opening
