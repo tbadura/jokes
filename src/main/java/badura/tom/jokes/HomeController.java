@@ -50,7 +50,7 @@ public class HomeController {
         // log activity in database
 //       logRecordService.insertRecord(new LogRecord(ipAddress));
 
-        // pass result JSON string to view
+        // pass resulting joke string to view
         model.addAttribute("showResult", joke);
 		
 		return "home";
