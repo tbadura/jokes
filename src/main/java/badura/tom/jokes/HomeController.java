@@ -22,8 +22,8 @@ import java.util.Locale;
  */
 @Controller
 public class HomeController {
-	
-	private static final Logger log = LoggerFactory.getLogger(HomeController.class);
+
+    private static final Logger log = LoggerFactory.getLogger(HomeController.class);
 
     private JokeService jokeService;
     private LogRecordService logRecordService;
