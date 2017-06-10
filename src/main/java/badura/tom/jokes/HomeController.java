@@ -45,12 +45,11 @@ public class HomeController {
 
         // retrieve joke
         String joke = jokeService.getJoke(); // gets joke encoded in HTML formatting
-        log.info(getMessagePrefix() + "The joke to display: " + joke);
 
         // log activity in database
         String ipAddress = request.getRemoteAddr();
         String unescapedJoke = StringEscapeUtils.unescapeHtml(joke);
-        log.info(getMessagePrefix() + "The joke to log: " + joke);
+        log.info(getMessagePrefix() + "Your Chuck Norris joke: " + unescapedJoke);
 //        logRecordService.insertRecord(new LogRecord(ipAddress, unescapedJoke));
 
         // pass resulting joke string to view
