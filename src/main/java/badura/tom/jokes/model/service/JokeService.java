@@ -10,7 +10,7 @@ public interface JokeService {
      *
      * @return The joke text or <code>null</code>.
      */
-    public String getJoke();
+    String getJoke();
 
 }
 
