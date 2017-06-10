@@ -32,7 +32,7 @@ public class JokeServiceImpl implements JokeService {
 
         try {
             URL url = new URL(endpoint);
-            log.debug(getMessagePrefix() + "Reading JSON from URL: " + endpoint);
+            log.debug(getMessagePrefix() + "Reading JSON from URL: " + url.toString());
 
             // try with resources opening URL
             try (BufferedReader reader = new BufferedReader(
