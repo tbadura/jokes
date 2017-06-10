@@ -29,9 +29,10 @@ public class JokeServiceTests {
         log.info("///////////////////////////// BEGIN testRandomJoke()");
 
         log.info("*** Getting random Chuck Norris joke");
-        String jsonResult = jokeService.getJoke();
-        log.info("*** Joke String: " + jsonResult);
-        Assert.assertNotNull(jsonResult);
+        String joke = jokeService.getJoke();
+
+        log.info("*** The HTML encoded joke: " + joke);
+        Assert.assertNotNull(joke);
 
         log.info("///////////////////////////// END testRandomJoke()");
     }

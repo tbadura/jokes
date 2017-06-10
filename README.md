@@ -22,10 +22,11 @@ src/test/resources/testApplicationContext.xml. Then execute the following SQL
 in your database:
 
 <pre>
-create table if not exists ACTIVITYLOG (
+create table if not exists ACTIVITY_LOG (
          id INTEGER PRIMARY KEY AUTOINCREMENT,
          activity_date TIMESTAMP NOT NULL,
-         ip_address text NOT NULL
+         ip_address text NOT NULL,
+         joke text
         );
 </pre>
 

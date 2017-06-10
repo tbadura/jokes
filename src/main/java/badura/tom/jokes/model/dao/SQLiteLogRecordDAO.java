@@ -43,17 +43,18 @@ public class SQLiteLogRecordDAO extends JdbcDaoSupport implements LogRecordDAO {
     }
 
     /**
-     * Create the ACTIVITYLOG table.
+     * Create the ACTIVITY_LOG table.
      *
      * @throws org.springframework.dao.DataAccessException if there's a database exception.
      */
     @Override
     public void createLogTable() {
 
-        final String CREATE_SQL = "create table if not exists ACTIVITYLOG (" +
+        final String CREATE_SQL = "create table if not exists ACTIVITY_LOG (" +
                 " id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 " activity_date TIMESTAMP NOT NULL," +
-                " ip_address text NOT NULL" +
+                " ip_address text NOT NULL," +
+                " joke text" +
                 ")";
 
 
@@ -78,11 +79,11 @@ public class SQLiteLogRecordDAO extends JdbcDaoSupport implements LogRecordDAO {
         Assert.notNull(record, "Cannot insert a null log record.");
         Assert.hasText(record.getIpAddress(), "Missing IP Address in log record.");
 
-        final String INSERT_SQL = "insert into ACTIVITYLOG (activity_date, ip_address)" +
-                " values(CURRENT_TIMESTAMP, ?)";
+        final String INSERT_SQL = "insert into ACTIVITY_LOG (activity_date, ip_address, joke)" +
+                " values(CURRENT_TIMESTAMP, ?, ?)";
 
 	  	int recordsInserted = getJdbcTemplate().update(INSERT_SQL,
-				record.getIpAddress());
+				record.getIpAddress(), record.getJoke());
 
         log.debug(getMessagePrefix() + "Number of log records inserted: " + recordsInserted);
         return (recordsInserted == 1);

@@ -20,7 +20,7 @@ public class LogRecordServiceImpl implements LogRecordService {
     
 
     /**
-     * Create the ACTIVITYLOG table.
+     * Create the ACTIVITY_LOG table.
      *
      * @throws org.springframework.dao.DataAccessException if there's a database exception.
      */

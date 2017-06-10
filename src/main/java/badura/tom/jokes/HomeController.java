@@ -1,7 +1,9 @@
 package badura.tom.jokes;
 
+import badura.tom.jokes.model.bean.LogRecord;
 import badura.tom.jokes.model.service.JokeService;
 import badura.tom.jokes.model.service.LogRecordService;
+import org.apache.commons.lang.StringEscapeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,16 +41,17 @@ public class HomeController {
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(Locale locale, Model model, HttpServletRequest request) {
-        log.info(getMessagePrefix() + "Entering HomeController class. The client locale is {}.", locale);
+        log.debug(getMessagePrefix() + "Entering HomeController class. The client locale is {}.", locale);
 
-        String joke = jokeService.getJoke();
-        log.debug(getMessagePrefix() + "Here's the joke encoded in HTML: " + joke);
-
-        String ipAddress = request.getRemoteAddr();
-        log.debug(getMessagePrefix() + "IP Address of requester to be logged: " + ipAddress);
+        // retrieve joke
+        String joke = jokeService.getJoke(); // gets joke encoded in HTML formatting
+        log.info(getMessagePrefix() + "The joke to display: " + joke);
 
         // log activity in database
-//       logRecordService.insertRecord(new LogRecord(ipAddress));
+        String ipAddress = request.getRemoteAddr();
+        String unescapedJoke = StringEscapeUtils.unescapeHtml(joke);
+        log.info(getMessagePrefix() + "The joke to log: " + joke);
+//        logRecordService.insertRecord(new LogRecord(ipAddress, unescapedJoke));
 
         // pass resulting joke string to view
         model.addAttribute("showResult", joke);

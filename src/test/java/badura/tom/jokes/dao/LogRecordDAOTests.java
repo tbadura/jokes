@@ -3,6 +3,7 @@ package badura.tom.jokes.dao;
 import badura.tom.jokes.model.bean.LogRecord;
 import badura.tom.jokes.model.dao.LogRecordDAO;
 import junit.framework.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -19,28 +20,58 @@ public class LogRecordDAOTests {
 
     @Autowired
     private LogRecordDAO logRecordDAO;
-    
+
+
+    /**
+     * Sets up the test fixture.
+     * (Called before every test case method.)
+     */
+
+    @Before
+    public void setUp() {
+
+        logRecordDAO.createLogTable();
+        log.info("///////////////////////////// setUp completed");
+    }
+
+
 
     /**
      * Individual tests
      */
 
     @Test
-    public void testInsert() {
+    public void testInsertWithJoke() {
 
-        log.info("///////////////////////////// BEGIN testInsert()");
+        log.info("///////////////////////////// BEGIN testInsertWithJoke()");
 
-        log.info("*** insert log record");
         String ipAddress = "192.168.1.3";
-        boolean success = logRecordDAO.insertRecord(new LogRecord(ipAddress));
+        String joke = "Chuck Norris sheds his skin twice a year.";
+        LogRecord logRecord = new LogRecord(ipAddress, joke);
+        log.info("*** insert log record " + logRecord);
+        boolean success = logRecordDAO.insertRecord(logRecord);
         Assert.assertTrue(success);
 
         log.info("*** Insert successful");
 
-        log.info("///////////////////////////// END testInsert()");
+        log.info("///////////////////////////// END testInsertWithJoke()");
     }
 
+    @Test
+    public void testInsertWithoutJoke() {
 
+        log.info("///////////////////////////// BEGIN testInsertWithoutJoke()");
+
+        String ipAddress = "192.168.1.4";
+        LogRecord logRecord = new LogRecord(ipAddress, null);
+        log.info("*** insert log record " + logRecord);
+        boolean success = logRecordDAO.insertRecord(logRecord);
+        Assert.assertTrue(success);
+
+        log.info("*** Insert successful");
+
+        log.info("///////////////////////////// END testInsertWithoutJoke()");
+    }
 
 
 }

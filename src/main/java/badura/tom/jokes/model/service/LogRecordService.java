@@ -8,11 +8,11 @@ import badura.tom.jokes.model.bean.LogRecord;
 public interface LogRecordService {
 
     /**
-     * Create the ACTIVITYLOG table.
+     * Create the ACTIVITY_LOG table.
      *
      * @throws org.springframework.dao.DataAccessException if there's a database exception.
      */
-    public void createLogTable();
+    void createLogTable();
 
     /**
      * Inserts the log record.
@@ -22,6 +22,6 @@ public interface LogRecordService {
      * @throws org.springframework.dao.DataAccessException if there's a database exception.
      * @throws IllegalArgumentException if there's a missing {@link LogRecord} object or object attributes.
      */
-    public boolean insertRecord(LogRecord record);
+    boolean insertRecord(LogRecord record);
 
 }

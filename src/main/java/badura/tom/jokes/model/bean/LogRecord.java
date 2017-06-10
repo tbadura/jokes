@@ -9,14 +9,15 @@ public class LogRecord {
 
     private java.util.Date activityDate;
     private String ipAddress;
+    private String joke;
 
     /*
      * Constructor with arguments
      */
-    public LogRecord(String ipAddress) {
+    public LogRecord(String ipAddress, String joke) {
         this.ipAddress = ipAddress;
+        this.joke = joke;
     }
-
 
     public LogRecord() {
         // in case you want set instance variables later
@@ -39,11 +40,20 @@ public class LogRecord {
         this.ipAddress = ipAddress;
     }
 
+    public String getJoke() {
+        return joke;
+    }
+
+    public void setJoke(String joke) {
+        this.joke = joke;
+    }
+
     @Override
     public String toString() {
         return "LogRecord{" +
                 "activityDate=" + activityDate +
                 ", ipAddress='" + ipAddress + '\'' +
+                ", joke='" + joke + '\'' +
                 '}';
     }
 }
