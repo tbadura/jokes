@@ -32,23 +32,33 @@ public class JokeServiceImpl implements JokeService {
 
         try {
             URL url = new URL(endpoint);
+            log.debug(getMessagePrefix() + "Reading JSON from URL: " + endpoint);
 
-            BufferedReader reader = new BufferedReader(
-                                        new InputStreamReader(url.openStream()));
+            // try with resources opening URL
+            try (BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(url.openStream()))) {
 
-            StringBuilder result = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                result.append(line);
-            }
+                StringBuilder result = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    result.append(line);
+                }
 
-            JSONObject data = new JSONObject(result.toString());
-            log.debug(getMessagePrefix() + "JSON result:\n" + data.toString(4));
+                // load JSON result text into object
+                JSONObject data = new JSONObject(result.toString());
+                log.debug(getMessagePrefix() + "JSON result:\n" + data.toString(4));
 
-            String type = data.optString("type");
-            if (type != null && type.equals("success")) {
-                return data.getJSONObject("value").getString("joke");
-            } else {
+                // parse JSON
+                String type = data.optString("type");
+                if (type != null && type.equals("success")) {
+                    return data.getJSONObject("value").getString("joke");
+                } else {
+                    return null;
+                }
+
+            } catch (IOException e) {
+
+                log.error(getMessagePrefix() + "Failed to get joke: ", e);
                 return null;
             }
 
@@ -57,10 +67,6 @@ public class JokeServiceImpl implements JokeService {
             log.error(getMessagePrefix() + "Failed to get joke (Bad URL): ", e);
             return null;
 
-        } catch (IOException e) {
-
-            log.error(getMessagePrefix() + "Failed to get joke: ", e);
-            return null;
         }
 
     }

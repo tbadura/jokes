@@ -35,13 +35,13 @@ public class HomeController {
     }
 
     /**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model, HttpServletRequest request) {
-		log.info(getMessagePrefix() + "Entering HomeController class. The client locale is {}.", locale);
+     * Simply selects the home view to render by returning its name.
+     */
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String home(Locale locale, Model model, HttpServletRequest request) {
+        log.info(getMessagePrefix() + "Entering HomeController class. The client locale is {}.", locale);
 
-		String joke = jokeService.getJoke();
+        String joke = jokeService.getJoke();
         log.debug(getMessagePrefix() + "Here's the joke encoded in HTML: " + joke);
 
         String ipAddress = request.getRemoteAddr();
@@ -52,9 +52,9 @@ public class HomeController {
 
         // pass resulting joke string to view
         model.addAttribute("showResult", joke);
-		
-		return "home";
-	}
+
+        return "home";
+    }
 
     @ExceptionHandler(Exception.class)
     public ModelAndView handleAllException(Exception ex) {
