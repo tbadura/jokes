@@ -30,6 +30,11 @@ public class HomeController {
     private JokeService jokeService;
     private LogRecordService logRecordService;
 
+    /**
+     * Constructor injection
+     * @param jokeService Service for fetching a joke (injected by Spring)
+     * @param logRecordService Service for logging a record (injected by Spring)
+     */
     @Autowired
     public HomeController(JokeService jokeService, LogRecordService logRecordService) {
         this.jokeService = jokeService;
@@ -49,7 +54,7 @@ public class HomeController {
         // log activity in database
         String ipAddress = request.getRemoteAddr();
         String unescapedJoke = StringEscapeUtils.unescapeHtml(joke);
-        log.info(getMessagePrefix() + "Your Chuck Norris joke: " + unescapedJoke);
+        log.info(getMessagePrefix() + "Your joke is: " + unescapedJoke);
 //        logRecordService.insertRecord(new LogRecord(ipAddress, unescapedJoke));
 
         // pass resulting joke string to view

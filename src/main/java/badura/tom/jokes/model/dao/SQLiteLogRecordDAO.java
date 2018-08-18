@@ -82,12 +82,12 @@ public class SQLiteLogRecordDAO extends JdbcDaoSupport implements LogRecordDAO {
         final String INSERT_SQL = "insert into ACTIVITY_LOG (activity_date, ip_address, joke)" +
                 " values(CURRENT_TIMESTAMP, ?, ?)";
 
-	  	int recordsInserted = getJdbcTemplate().update(INSERT_SQL,
-				record.getIpAddress(), record.getJoke());
+        int recordsInserted = getJdbcTemplate().update(INSERT_SQL,
+                record.getIpAddress(), record.getJoke());
 
         log.debug(getMessagePrefix() + "Number of log records inserted: " + recordsInserted);
         return (recordsInserted == 1);
-	}
+    }
 
 
     /**

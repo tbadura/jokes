@@ -46,7 +46,7 @@ public class LogRecordDAOTests {
         log.info("///////////////////////////// BEGIN testInsertWithJoke()");
 
         String ipAddress = "192.168.1.3";
-        String joke = "Chuck Norris sheds his skin twice a year.";
+        String joke = "What goes peck, peck ... BANG? A chicken in a minefield.";
         LogRecord logRecord = new LogRecord(ipAddress, joke);
         log.info("*** insert log record " + logRecord);
         boolean success = logRecordDAO.insertRecord(logRecord);
