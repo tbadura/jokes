@@ -10,7 +10,7 @@
 	<bean id="jdbcDatasource"
 		  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.sqlite.JDBC" />
-		<property name="url" value="jdbc:sqlite:/home/tom/sqlite/mydb.db" />
+		<property name="url" value="jdbc:sqlite:/Users/tom/sqlite/mydb.db" />
 	</bean>
 
 </beans>

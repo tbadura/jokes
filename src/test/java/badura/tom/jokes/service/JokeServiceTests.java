@@ -1,7 +1,7 @@
 package badura.tom.jokes.service;
 
 import badura.tom.jokes.model.service.JokeService;
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;

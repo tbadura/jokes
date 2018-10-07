@@ -2,7 +2,7 @@ package badura.tom.jokes.dao;
 
 import badura.tom.jokes.model.bean.LogRecord;
 import badura.tom.jokes.model.dao.LogRecordDAO;
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
