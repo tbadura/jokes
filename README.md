@@ -9,7 +9,7 @@ This project was created using IntelliJ IDEA (IDE). Load project by opening
 pom.xml file. To build the project without the IDE, go to the directory where
 pom.xml is located and run: mvn package
 
-The war file created by maven has been tested on Tomcat versions 7 and 8. 
+The war file created by maven has been tested on Tomcat versions 7, 8 and 9. 
 
 Logging to sqllite database is currently disabled. If you want to try to 
 deploy and run with database logging for each request, you can uncomment out
