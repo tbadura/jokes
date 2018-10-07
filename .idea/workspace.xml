@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf78327a-0d4b-4197-af73-feefbd034c25" name="Default" comment="removed redundant &quot;public&quot; modifier in interface method">
+    <list default="true" id="bf78327a-0d4b-4197-af73-feefbd034c25" name="Default" comment="Removed IntelliJ IDEA files">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/codechallenge_war.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/codechallenge_war_exploded.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/jokes_war.xml" beforeDir="false" />
@@ -53,23 +54,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="xml" value="2" />
+          <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="XML" value="2" />
+          <entry key="XML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="11" />
+          <entry key="txt" value="27" />
           <entry key="xml" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="11" />
+          <entry key="PLAIN_TEXT" value="27" />
           <entry key="XML" value="20" />
         </counts>
       </usages-collector>
@@ -419,7 +422,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538931518438" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538931997284" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
@@ -619,7 +622,7 @@
       <workItem from="1496941360985" duration="10509000" />
       <workItem from="1496952209916" duration="2679000" />
       <workItem from="1538923971795" duration="2517000" />
-      <workItem from="1538931233678" duration="237000" />
+      <workItem from="1538931233678" duration="1285000" />
     </task>
     <task id="LOCAL-00001" summary="fix indentation">
       <created>1497104469285</created>
@@ -677,7 +680,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534558000752</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Removed IntelliJ IDEA files">
+      <created>1538931701422</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1538931701422</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -713,7 +723,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131253000" />
+    <option name="totallyTimeSpent" value="132301000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -727,7 +737,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="1024" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49559748" visible="true" weight="0.20436187" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49559748" visible="true" weight="0.20436187" />
       <window_info id="Structure" order="1" weight="0.24959612" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -743,12 +753,12 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32851985" />
-      <window_info anchor="bottom" id="Spring" order="7" weight="0.32955974" />
+      <window_info anchor="bottom" id="Spring" order="7" weight="0.32867885" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32975295" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32914045" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32906976" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32955974" />
-      <window_info anchor="bottom" id="Version Control" order="12" visible="true" weight="0.32867885" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="12" visible="true" weight="0.32867885" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24958949" />
@@ -810,7 +820,8 @@
     <MESSAGE value="log formatting change" />
     <MESSAGE value="Modified database logging, jUnit test cases" />
     <MESSAGE value="removed redundant &quot;public&quot; modifier in interface method" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed redundant &quot;public&quot; modifier in interface method" />
+    <MESSAGE value="Removed IntelliJ IDEA files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed IntelliJ IDEA files" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -979,6 +990,9 @@
           <caret line="2" column="50" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="50" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/artifacts/codechallenge_war_exploded.xml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/badura/tom/jokes/dao/LogRecordDAOTests.java">
       <provider selected="true" editor-type-id="text-editor">
