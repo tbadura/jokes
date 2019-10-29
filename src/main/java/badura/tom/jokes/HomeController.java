@@ -8,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -45,8 +44,9 @@ public class HomeController {
      * Simply selects the home view to render by returning its name.
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String home(Locale locale, Model model, HttpServletRequest request) {
+    public ModelAndView home(Locale locale, HttpServletRequest request) {
         log.debug(getMessagePrefix() + "Entering HomeController class. The client locale is {}.", locale);
+        ModelAndView modelAndView = new ModelAndView("home");
 
         // retrieve joke
         String joke = jokeService.getJoke(); // gets joke encoded in HTML formatting
@@ -58,13 +58,15 @@ public class HomeController {
 //        logRecordService.insertRecord(new LogRecord(ipAddress, unescapedJoke));
 
         // pass resulting joke string to view
-        model.addAttribute("showResult", joke);
+        modelAndView.addObject("showResult", joke);
 
-        return "home";
+        return modelAndView;
     }
 
     @ExceptionHandler(Exception.class)
-    public ModelAndView handleAllException(Exception ex) {
+    public ModelAndView handleAllException(HttpServletRequest request, Exception ex) {
+        log.error(getMessagePrefix() + "Requested URL: " + request.getRequestURL());
+        log.error(getMessagePrefix() + "Exception Raised: " + ex);
 
         return new ModelAndView("error");
 
