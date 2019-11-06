@@ -51,7 +51,7 @@ public class SQLiteLogRecordDAO extends JdbcDaoSupport implements LogRecordDAO {
 
         log.debug(getMessagePrefix() + "Executing SQL: " + CREATE_SQL);
 
-
+        Assert.notNull(getJdbcTemplate(), "JdbcTemplate not found.");
         getJdbcTemplate().update(CREATE_SQL);
 
     }
@@ -73,6 +73,7 @@ public class SQLiteLogRecordDAO extends JdbcDaoSupport implements LogRecordDAO {
         final String INSERT_SQL = "insert into ACTIVITY_LOG (activity_date, ip_address, joke)" +
                 " values(CURRENT_TIMESTAMP, ?, ?)";
 
+        Assert.notNull(getJdbcTemplate(), "JdbcTemplate not found.");
         int recordsInserted = getJdbcTemplate().update(INSERT_SQL,
                 record.getIpAddress(), record.getJoke());
 
