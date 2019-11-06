@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
-import org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.Assert;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -33,14 +32,6 @@ public class SQLiteLogRecordDAO extends JdbcDaoSupport implements LogRecordDAO {
         setDataSource(dataSource);
     }
 
-    /*
-     *  Custom DAO initialization
-     */
-    @Override
-    protected void initDao() throws Exception {
-        super.initDao();
-        getJdbcTemplate().setNativeJdbcExtractor(new SimpleNativeJdbcExtractor());      // Allows access to the underlying native Connection
-    }
 
     /**
      * Create the ACTIVITY_LOG table.
