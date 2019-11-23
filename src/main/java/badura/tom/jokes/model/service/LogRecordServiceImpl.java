@@ -2,18 +2,16 @@ package badura.tom.jokes.model.service;
 
 import badura.tom.jokes.model.bean.LogRecord;
 import badura.tom.jokes.model.dao.LogRecordDAO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * Log Record Service layer implementation
  */
-@Component
+@Service
 public class LogRecordServiceImpl implements LogRecordService {
 
     private LogRecordDAO logRecordDAO;
 
-    @Autowired
     public LogRecordServiceImpl(LogRecordDAO logRecordDAO) {
         this.logRecordDAO = logRecordDAO;
     }

@@ -6,7 +6,6 @@ import badura.tom.jokes.model.service.LogRecordService;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,7 +33,6 @@ public class HomeController {
      * @param jokeService Service for fetching a joke (injected by Spring)
      * @param logRecordService Service for logging a record (injected by Spring)
      */
-    @Autowired
     public HomeController(JokeService jokeService, LogRecordService logRecordService) {
         this.jokeService = jokeService;
         this.logRecordService = logRecordService;

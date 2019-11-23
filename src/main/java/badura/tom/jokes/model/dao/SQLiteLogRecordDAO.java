@@ -3,7 +3,6 @@ package badura.tom.jokes.model.dao;
 import badura.tom.jokes.model.bean.LogRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.Assert;
@@ -22,7 +21,6 @@ public class SQLiteLogRecordDAO extends JdbcDaoSupport implements LogRecordDAO {
 
     private DataSource dataSource;
 
-    @Autowired
     public SQLiteLogRecordDAO(DataSource dataSource) {
         this.dataSource = dataSource;
     }

@@ -3,7 +3,7 @@ package badura.tom.jokes.model.service;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -16,7 +16,7 @@ import java.net.URL;
 /**
  * Implementation of The Internet Chuck Norris Database (http://www.icndb.com/api/)
  */
-@Component
+@Service
 public class JokeServiceImpl implements JokeService {
 
     private Logger log = LoggerFactory.getLogger(this.getClass());
