@@ -54,6 +54,15 @@ public class SQLiteLogRecordDAO extends JdbcDaoSupport implements LogRecordDAO {
 
     }
 
+    /*
+     * Get count of all records in ACTIVITY_LOG table
+     *
+     * @return number of records in ACTIVITY_LOG table
+     */
+    public int getTotalRecordCount() {
+        return getJdbcTemplate().queryForObject(
+                "SELECT COUNT(*) FROM ACTIVITY_LOG", Integer.class);
+    }
 
     /**
      * Inserts the log record.

@@ -14,6 +14,13 @@ public interface LogRecordDAO {
      */
     void createLogTable();
 
+    /*
+     * Get count of all records in ACTIVITY_LOG table
+     *
+     * @return number of records in ACTIVITY_LOG table
+     */
+    int getTotalRecordCount();
+
     /**
      * Inserts the log record.
      *

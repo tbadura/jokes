@@ -48,9 +48,17 @@ public class LogRecordDAOTests {
         String ipAddress = "192.168.1.3";
         String joke = "What goes peck, peck ... BANG? A chicken in a minefield.";
         LogRecord logRecord = new LogRecord(ipAddress, joke);
+
+        int totalRecordsBeforeInsert = logRecordDAO.getTotalRecordCount();
+        log.info("Total number of log records (Before Insert): " + totalRecordsBeforeInsert);
+
         log.info("*** insert log record " + logRecord);
         boolean success = logRecordDAO.insertRecord(logRecord);
-        Assert.assertTrue(success);
+
+        int totalRecordsAfterInsert = logRecordDAO.getTotalRecordCount();
+        log.info("Total number of log records (After Insert): " + totalRecordsAfterInsert);
+
+        Assert.assertTrue(success && insertVerified(totalRecordsBeforeInsert, totalRecordsAfterInsert) );
 
         log.info("*** Insert successful");
 
@@ -64,14 +72,27 @@ public class LogRecordDAOTests {
 
         String ipAddress = "192.168.1.4";
         LogRecord logRecord = new LogRecord(ipAddress, null);
+
+        int totalRecordsBeforeInsert = logRecordDAO.getTotalRecordCount();
+        log.info("Total number of log records (Before Insert): " + totalRecordsBeforeInsert);
+
         log.info("*** insert log record " + logRecord);
         boolean success = logRecordDAO.insertRecord(logRecord);
-        Assert.assertTrue(success);
+
+        int totalRecordsAfterInsert = logRecordDAO.getTotalRecordCount();
+        log.info("Total number of log records (After Insert): " + totalRecordsAfterInsert);
+
+        Assert.assertTrue(success && insertVerified(totalRecordsBeforeInsert, totalRecordsAfterInsert) );
 
         log.info("*** Insert successful");
 
         log.info("///////////////////////////// END testInsertWithoutJoke()");
     }
 
+    private boolean insertVerified (int recordsBeforeInsert, int recordsAfterInsert) {
+        final int expectedRecordsAfterInsert = recordsBeforeInsert + 1;
+
+        return (recordsAfterInsert == expectedRecordsAfterInsert);
+    }
 
 }
