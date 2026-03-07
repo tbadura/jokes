@@ -3,7 +3,7 @@ package badura.tom.jokes;
 import badura.tom.jokes.model.bean.LogRecord;
 import badura.tom.jokes.model.service.JokeService;
 import badura.tom.jokes.model.service.LogRecordService;
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.text.StringEscapeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -51,7 +51,7 @@ public class HomeController {
 
         // log activity in database
         String ipAddress = request.getRemoteAddr();
-        String unescapedJoke = StringEscapeUtils.unescapeHtml(joke);
+        String unescapedJoke = StringEscapeUtils.unescapeHtml4(joke);
         log.info(getMessagePrefix() + "Your joke is: " + unescapedJoke);
 //        logRecordService.insertRecord(new LogRecord(ipAddress, unescapedJoke));
 

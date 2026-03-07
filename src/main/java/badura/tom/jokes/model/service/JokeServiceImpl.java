@@ -3,18 +3,20 @@ package badura.tom.jokes.model.service;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.util.Collections;
 
 /**
- * Implementation of The Internet Chuck Norris Database (http://www.icndb.com/api/)
+ * Implementation of the chucknorris.io JSON API
  */
 @Service
 public class JokeServiceImpl implements JokeService {
@@ -28,47 +30,38 @@ public class JokeServiceImpl implements JokeService {
      */
     @Override
     public String getJoke() {
-        String endpoint = "http://api.icndb.com/jokes/random";
+        String endpoint = "https://api.chucknorris.io/jokes/random";
+
+        // Set headers to act like a browser/client the API trusts
+        HttpHeaders headers = new org.springframework.http.HttpHeaders();
+        headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+        headers.add("User-Agent", "Mozilla/5.0"); // Important for many public APIs
+
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+        RestTemplate restTemplate = new RestTemplate();
 
         try {
-            URL url = new URL(endpoint);
-            log.debug(getMessagePrefix() + "Reading JSON from URL: " + url.toString());
+            // Use exchange to send the headers along with the GET request
+            ResponseEntity<String> response = restTemplate.exchange(
+                    endpoint,
+                    HttpMethod.GET,
+                    entity,
+                    String.class);
 
-            // try with resources opening URL
-            try (BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(url.openStream()))) {
+            String jsonResponse = response.getBody();
 
-                StringBuilder result = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    result.append(line);
-                }
-
-                // load JSON result text into object
-                JSONObject data = new JSONObject(result.toString());
-                log.debug(getMessagePrefix() + "JSON result:\n" + data.toString(4));
-
-                // parse JSON
-                String type = data.optString("type");
-                if (type != null && type.equals("success")) {
-                    return data.getJSONObject("value").getString("joke");
-                } else {
-                    return null;
-                }
-
-            } catch (IOException e) {
-
-                log.error(getMessagePrefix() + "Failed to get joke: ", e);
+            if (jsonResponse != null && jsonResponse.trim().startsWith("{")) {
+                JSONObject data = new JSONObject(jsonResponse);
+                return data.getString("value");
+            } else {
+                log.error(getMessagePrefix() + "Invalid JSON received: " + jsonResponse);
                 return null;
             }
 
-        } catch (MalformedURLException e) {
-
-            log.error(getMessagePrefix() + "Failed to get joke (Bad URL): ", e);
+        } catch (Exception e) {
+            log.error(getMessagePrefix() + "Request failed: " + e.getMessage());
             return null;
-
         }
-
     }
 
     /**

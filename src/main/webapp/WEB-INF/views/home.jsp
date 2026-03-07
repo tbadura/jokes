@@ -17,14 +17,20 @@
     <div class="container">
         <br/>
         <h3>Your Chuck Norris Joke:</h3>
-        <p>
-            ${showResult}
+        <p class="lead font-italic">
+            <c:out value="${not empty showResult ? showResult : 'Chuck Norris is currently busy saving the world. Please try again.'}" />
         </p>
 
-        <form><input type="button" value="Next Joke" onClick="window.location.reload()"></form>
+
+        <form>
+            <button type="button" class="btn btn-primary" onClick="window.location.reload()">
+                Next Joke
+            </button>
+        </form>
+
 
         <hr/>
-        Powered by <a href="http://www.icndb.com/">The Internet Chuck Norris Database</a>
+        Powered by <a href="https://api.chucknorris.io/">chucknorris.io</a>
     </div>
 </body>
 </html>
