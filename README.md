@@ -1,7 +1,7 @@
 # jokes
 
-This web application will display a random joke from the [Internet Chuck Norris
-Database](http://www.icndb.com/). Each time the web page is refreshed, you will
+This web application will display a random joke from the [Chuck Norris
+Jokes API](https://api.chucknorris.io/). Each time the web page is refreshed, you will
 get a different Chuck Norris joke. The source code is written in Java and uses
 the Spring Framework.
 
