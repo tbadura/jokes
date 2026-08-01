@@ -3,7 +3,7 @@
 <%@ page import="org.slf4j.LoggerFactory" %>
 
 <%-- JSTL taglibs --%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <%
     Logger logger = LoggerFactory.getLogger("error.jsp");
